@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CataloguePage } from './pages/catalogue.page';
-import { LandingPage } from './pages/landing.page';
-import { TrainerPage } from './pages/trainer.page';
+import { RouterModule, Routes } from '@angular/router'
+import { CataloguePage } from './pages/catalogue/catalogue.page';
+import { LandingPage } from './pages/landing/landing.page';
+import { TrainerPage } from './pages/trainer/trainer.page';
 
 
 const routes: Routes = [
@@ -26,7 +26,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
 })
+
 export class AppRoutingModule { }
