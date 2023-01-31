@@ -1,1 +1,11 @@
-<p>login-form works!</p>
+<div class="min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="row card p-3 shadow">
+    <form #loginForm="ngForm" class="" (ngSubmit)="loginSubmit(loginForm)">
+        <fieldset>
+            <input type="text" ngModel #username="ngModel" name="username" id="username" class="form-control mb-2"
+                placeholder="Johen " />
+        </fieldset>
+        <button type="submit" class="btn btn-primary ">Login</button>
+    </form>
+</div>
+</div>
