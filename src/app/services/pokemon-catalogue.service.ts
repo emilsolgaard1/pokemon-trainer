@@ -25,7 +25,7 @@ export class PokemonCatalogueService {
 
   constructor(private readonly http: HttpClient) { }
 
-  public findAllPokemons(forceApi = false): void {
+  public findAllPokemons(forceCheckApi = false): void {
     if(this._pkemons.length>0|| this.loading)
     {
       return
@@ -33,7 +33,7 @@ export class PokemonCatalogueService {
     
     // use pokemon-catalogue in storage if possible
     const storedPokemons = StorageUtil.storageRead<Pokemon[]>("pokemon-catalogue")
-    if(!forceApi && storedPokemons !== undefined) {
+    if(!forceCheckApi && storedPokemons !== undefined) {
         //console.log("stored pokemons")
         this._pkemons = storedPokemons
         return
