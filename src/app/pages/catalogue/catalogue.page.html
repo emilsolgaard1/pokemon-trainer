@@ -1,1 +1,6 @@
-<h1>Catalogue page!</h1>
+<h1 class="text-center">Pokemon Catalogue</h1>
+
+<main class="container mx-auto p-3">
+    <p *ngIf="loading">Loading pokemons...</p>
+    <app-pokemon-list [pokemons]="pokemons"></app-pokemon-list>
+</main>
