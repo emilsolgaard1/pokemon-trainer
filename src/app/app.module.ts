@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { LandingPage } from './pages/landing/landing.page';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TrainerPage } from './pages/trainer/trainer.page';
     LoginFormComponent,
     LandingPage,
     CataloguePage,
-    TrainerPage
+    TrainerPage,
+    NavbarComponent
 
   ],
   imports: [
