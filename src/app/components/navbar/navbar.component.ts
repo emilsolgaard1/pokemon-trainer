@@ -22,6 +22,6 @@ export class NavbarComponent {
 
   public handleLogout():void{
     StorageUtil.storageDelete<User>(StorageKeys.User)
-    //this.router.navigateByUrl("/catalogue")
+    window.location.reload();
   }
 }
