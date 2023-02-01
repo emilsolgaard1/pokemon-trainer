@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment'
 import { User } from '../models/user.model';
 
 
-const { trainerApiUrl,trainerApiKey } = environment;
+const { apiUsers,apiKey } = environment;
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class LoginService {
   }
 
   private checkUsername(username: string): Observable<User | undefined> {
-    return this.http.get<User[]>(`${trainerApiUrl}?username=${username}`)
+    return this.http.get<User[]>(`${apiUsers}?username=${username}`)
       .pipe(
         //RxJS operatiors
         // If the user array empty pop will return undefined 
@@ -45,9 +45,9 @@ export class LoginService {
 
     const headers = new HttpHeaders({
       "content-type":"application/json",
-      "x-api-key":trainerApiKey
+      "x-api-key":apiKey
     })
 
-    return this.http.post<User>(trainerApiUrl,user,{headers})
+    return this.http.post<User>(apiUsers,user,{headers})
   }
 }

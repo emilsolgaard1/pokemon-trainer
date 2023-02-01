@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment.development';
 import { Pokemon } from '../models/pokemon.model';
 import { StorageUtil } from '../utils/storage.utils';
 
-const { pokemonsApiUrl } = environment
+const { apiPokemons } = environment
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +41,7 @@ export class PokemonCatalogueService {
 
     this._loading = true
     // User type any cause Pokemon API returns an object not an array
-    this.http.get<any>(pokemonsApiUrl)
+    this.http.get<any>(apiPokemons)
       .pipe(
         finalize(() => {
           this._loading = false
