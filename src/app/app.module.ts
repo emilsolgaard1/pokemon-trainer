@@ -11,6 +11,9 @@ import { LandingPage } from './pages/landing/landing.page';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
+import { FavouritePokemonButtonComponent } from './components/favourite-pokemon-button/favourite-pokemon-button.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +22,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LandingPage,
     CataloguePage,
     TrainerPage,
-    NavbarComponent
-
+    NavbarComponent,
+    PokemonListComponent,
+    PokemonListItemComponent,
+    FavouritePokemonButtonComponent
   ],
   imports: [
     BrowserModule,
