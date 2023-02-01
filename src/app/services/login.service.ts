@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable, of, switchMap } from 'rxjs';
-import { environment } from 'src/app/environments/environment'
+import { environment } from 'src/app/environments/environment.development'
 import { User } from '../models/user.model';
 
 
