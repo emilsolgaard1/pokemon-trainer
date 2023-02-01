@@ -1,4 +1,4 @@
-<button class="border text-white" [ngClass]="{'bg-success' : !isFavourite, 'bg-danger' : isFavourite}"
+<button class="border rounded text-white" [ngClass]="{'bg-success' : !isFavourite, 'bg-danger' : isFavourite}"
         (click)="onFavouriteClick()">
         <!-- [disabled]="isFavourite" -->
         <div *ngIf="!loading; else spinner">
