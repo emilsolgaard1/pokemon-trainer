@@ -7,7 +7,7 @@ import { User } from '../models/user.model';
 import { PokemonCatalogueService } from './pokemon-catalogue.service';
 import { UserService } from './user.service';
 
-const{trainerApiKey,trainerApiUrl} = environment
+const{apiKey,apiUsers} = environment
 
 @Injectable({
   providedIn: 'root'
@@ -44,10 +44,10 @@ export class FavouriteService {
     
     const headers = new HttpHeaders({
       "content-type":"application/json",
-      "x-api-key":trainerApiKey
+      "x-api-key":apiKey
     })
 
-    return this.http.patch<User>(`${trainerApiUrl}/${user.id}`,
+    return this.http.patch<User>(`${apiUsers}/${user.id}`,
     {pokemon:[...user.pokemon]},{headers}// Already updated.
     )
     .pipe(
