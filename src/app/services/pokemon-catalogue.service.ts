@@ -4,8 +4,9 @@ import { Injectable } from '@angular/core';
 import { finalize, map } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { Pokemon } from '../models/pokemon.model';
+import { StorageUtil } from '../utils/storage.utils';
 
-const { apiPokemons } = environment
+const { pokemonsApiUrl } = environment
 
 @Injectable({
   providedIn: 'root'
@@ -24,15 +25,23 @@ export class PokemonCatalogueService {
 
   constructor(private readonly http: HttpClient) { }
 
-  public findAllPokemons(): void {
+  public findAllPokemons(forceApi = false): void {
     if(this._pkemons.length>0|| this.loading)
     {
       return
     }
+    
+    // use pokemon-catalogue in storage if possible
+    const storedPokemons = StorageUtil.storageRead<Pokemon[]>("pokemon-catalogue")
+    if(!forceApi && storedPokemons !== undefined) {
+        //console.log("stored pokemons")
+        this._pkemons = storedPokemons
+        return
+    }
 
     this._loading = true
     // User type any cause Pokemon API returns an object not an array
-    this.http.get<any>(apiPokemons)
+    this.http.get<any>(pokemonsApiUrl)
       .pipe(
         finalize(() => {
           this._loading = false
@@ -41,6 +50,7 @@ export class PokemonCatalogueService {
       .subscribe(
         {
           next: (data) => {
+            //console.log("request") // TESTING
             const pokemons:Pokemon[] = data.results  
             pokemons.map(item=>{
               let urlArray=item.url.split('/')
@@ -49,6 +59,7 @@ export class PokemonCatalogueService {
             })
 
             this._pkemons = pokemons
+            StorageUtil.storageSave<Pokemon[]>("pokemon-catalogue", pokemons)
           },
           error: (error: HttpErrorResponse) => { this._error = error.message }
         }

@@ -1,13 +1,13 @@
-<button class="border"
+<button class="border" [ngClass]="{'bg-success text-white' : isFavourite}" [disabled]="isFavourite"
         (click)="onFavouriteClick()">
 
         <div *ngIf="!loading; else spinner">
         <ng-container *ngIf="isFavourite; then favourite else notFavourite" class="material-icons"></ng-container>
         <ng-template #favourite>
-            <span class="material-icons">unfavourite</span>
+            <span class="material-icons">collected</span>
         </ng-template>
         <ng-template #notFavourite>
-            <span class="material-icons">favourite</span>
+            <span class="material-icons">collect</span>
         </ng-template>
     </div>
 <ng-template #spinner>
