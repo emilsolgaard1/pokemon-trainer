@@ -8,9 +8,9 @@
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <div></div>
+                <div class="navbar-nav me-auto">
                     <div class="nav-item">
                         <a class="nav-link " routerLink="/catalogue">
                             <h6>Catalogue</h6>
@@ -21,11 +21,13 @@
                             <h6>Trainer</h6>
                         </a>
                     </div>
-                    <div class="nav-item">
-                        <button class="btn btn-sm btn-link nav-link " type="submit" (click)="handleLogout()">
-                            <h6>Log out</h6>
-                        </button>
-                    </div>
+                </div>
+            </div>            
+            <div class="navbar-nav d-flex pe-5">
+                <div class="nav-item">
+                    <button class="btn btn-sm btn-link nav-link " type="submit" (click)="handleLogout()">
+                        <h6>Log out</h6>
+                    </button>
                 </div>
             </div>
         </ng-container>
