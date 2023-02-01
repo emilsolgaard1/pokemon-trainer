@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-warning ">
     <div class="container-fluid">
         <a class="navbar-brand" routerLink="/catalogue">
-            <h1>Ng Pokemons |</h1>
+            <h1>Pokemon Trainer |</h1>
         </a>
         <ng-container *ngIf="user!==undefined">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
@@ -10,6 +10,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
+                    <div></div>
                     <div class="nav-item">
                         <a class="nav-link " routerLink="/catalogue">
                             <h6>Catalogue</h6>
@@ -20,11 +21,11 @@
                             <h6>Trainer</h6>
                         </a>
                     </div>
-                    <!-- <div class="nav-item">
+                    <div class="nav-item">
                         <button class="btn btn-sm btn-link nav-link " type="submit" (click)="handleLogout()">
                             <h6>Log out</h6>
                         </button>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </ng-container>
