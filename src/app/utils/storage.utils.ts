@@ -21,5 +21,9 @@ export class StorageUtil {
     public static storageDelete<T>(key: string): void {
         sessionStorage.removeItem(key)
     }
+
+    public static storageClear() : void {
+        sessionStorage.clear()
+    }
 }
 
