@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/app/environments/environment.development';
 import { Pokemon } from '../models/pokemon.model';
 import { User } from '../models/user.model';
 import { PokemonCatalogueService } from './pokemon-catalogue.service';

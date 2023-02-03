@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { isNgTemplate } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { finalize, map } from 'rxjs';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/app/environments/environment.development';
 import { Pokemon } from '../models/pokemon.model';
 import { StorageUtil } from '../utils/storage.utils';
 
