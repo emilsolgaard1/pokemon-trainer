@@ -26,3 +26,6 @@ Pokemon are added and removed to the user's collection via the user service.
 The trainer page reuses the pokemon list component to display pokemons much alike the catalogue page.  
 However on the trainer page only the pokemon in the user's collection are displayed.  
 Pokemon can, similarly to the catalogue page, be removed from the user's collection via the embedded favourite/collect button component.  
+
+## Component-tree
+<img src="pokemon-trainer-component-tree.png" />
