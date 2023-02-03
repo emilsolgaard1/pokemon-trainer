@@ -21,6 +21,11 @@ export class FavouriteService {
     private readonly userService:UserService
   ) { }
 
+  /**
+   * Add a pokemon with specific name from catalogue to the current user's collection.
+   * @param pokemonName The specific name of pokemon to add.
+   * @returns Observable of the user with updated collection.
+   */
   public addToFavorites(pokemonName:string):Observable<User>{
     
     if(!this.userService.user)

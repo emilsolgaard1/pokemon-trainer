@@ -21,7 +21,6 @@ export class NavbarComponent {
     private readonly userService:UserService){}
 
   public handleLogout():void{
-    //StorageUtil.storageDelete<User>(StorageKeys.User)
     StorageUtil.storageClear();
     window.location.reload();
   }

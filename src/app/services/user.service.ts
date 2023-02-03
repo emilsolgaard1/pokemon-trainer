@@ -12,7 +12,8 @@ export class UserService {
 
   get user(): User | undefined { return this._user }
   set user(user: User | undefined) {
-    //Explanation mark means this should never be undefines    
+    // Set user locally and in session storage.
+    // Explanation mark means this should never be undefined
     StorageUtil.storageSave<User>(StorageKeys.User, user!)
     this._user = user
   }
@@ -22,6 +23,11 @@ export class UserService {
 
   }
 
+  /** 
+   * Check if pokemon is contained in user's collections.
+   * @param pokemonName Name of the pokemon to check for.
+   * @returns true if pokemon is in collection, else returns false.
+  */
   public inCollection(pokemonName: string): boolean {
     if (this._user) {
       return Boolean(this.user?.pokemon.find((pokemon: Pokemon) => pokemon.name === pokemonName))
@@ -29,11 +35,19 @@ export class UserService {
     return false;
   }
 
+  /**
+   * Adds specific pokemon to user's collection.
+   * @param pokemon Pokemon object to add.
+   */
   public addToCollection(pokemon: Pokemon): void {
     if (this._user) {
        this._user.pokemon.push(pokemon)   
     }
   }
+  /**
+   * Remove specific pokemon from user's collection.
+   * @param pokemonName Name of pokemon to remove.
+   */
   public removeFromCollection(pokemonName: string): void {
    if (this._user) {
       this._user.pokemon = this._user?.pokemon.filter((pokemon:Pokemon)=> pokemon.name!==pokemonName)    

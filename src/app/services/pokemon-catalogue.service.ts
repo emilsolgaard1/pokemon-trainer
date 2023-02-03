@@ -13,18 +13,19 @@ const { apiPokemons } = environment
 })
 export class PokemonCatalogueService {
   private _pkemons: Pokemon[] = []
-  // private _pokemons_1:Pokemon[]|undefined
   private _error: string = ""
   private _loading: boolean = false
 
-  // get pokemons_1(): Pokemon|undefined { 
-  //   return this._pokemons_1  }
   get pokemons(): Pokemon[] { return this._pkemons }
   get error(): string { return this._error }
   get loading(): boolean { return this._loading }
 
   constructor(private readonly http: HttpClient) { }
 
+  /**
+   * Requests pokemon from PokemonAPI, but uses session storage if available.
+   * @param forceCheckApi If true: disregard session storage and force check API instead.
+   */
   public findAllPokemons(forceCheckApi = false): void {
     if(this._pkemons.length>0|| this.loading)
     {
@@ -50,7 +51,6 @@ export class PokemonCatalogueService {
       .subscribe(
         {
           next: (data) => {
-            //console.log("request") // TESTING
             const pokemons:Pokemon[] = data.results  
             pokemons.map(item=>{
               let urlArray=item.url.split('/')
@@ -66,6 +66,11 @@ export class PokemonCatalogueService {
       )
   }
  
+  /**
+   * Get specific pokemon from catalogue.
+   * @param name Name of the pokemon to get.
+   * @returns Pokemon object, or undefined if pokemon can't be found.
+   */
   public pokemonByName(name:string): Pokemon | undefined
   {
     return this._pkemons.find((pokemon:Pokemon)=>pokemon.name===name)
