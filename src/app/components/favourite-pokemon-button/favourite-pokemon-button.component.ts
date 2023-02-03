@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { FavouriteService } from 'src/app/services/favourite.service';
 import { UserService } from 'src/app/services/user.service';
@@ -15,6 +15,7 @@ export class FavouritePokemonButtonComponent implements OnInit {
   public loading: boolean = false
 
   @Input() pokemonName: string = ""
+  @Output() favourite: EventEmitter<boolean> = new EventEmitter()
 
   constructor(
     private readonly userService: UserService,
@@ -31,6 +32,7 @@ export class FavouritePokemonButtonComponent implements OnInit {
       next: (updatedUser: User) => {
         this.loading = false
         this.isFavourite = this.userService.inCollection(this.pokemonName)
+        this.favourite.emit(this.isFavourite)
       },
       error: (error: HttpErrorResponse) => {
         console.log("ERROR", error.message)
