@@ -1,9 +1,22 @@
 <li class="shadow border border-1 rounded" style="width:150px" *ngIf="pokemon">
-    <section>
+    <section style="position:relative;width:96px;height:96px;margin:auto;">
+        <div class="pokeball" [hidden]="!isFavourite" [ngClass]="{'no-animation' : !nowFavourite}">
+            <div class="pokeball__button"></div>
+        </div>
         <img [src]="pokemon.image" [alt]="pokemon.name"/>
     </section>
     <section>
         <label>{{pokemon.name}}</label>
     </section>
-    <app-favourite-pokemon-button [pokemonName]="pokemon.name"></app-favourite-pokemon-button>
+    <app-favourite-pokemon-button [pokemonName]="pokemon.name" (favourite)="handleFavourite($event)"></app-favourite-pokemon-button>
 </li>
+
+<!-- 
+    [hidden]="!isFavourite" 
+    [ngClass]="{'no-animation' : isFavourite}"
+
+    (favouriteClick)="handleFavouriteClick($event)"
+
+
+
+-->
