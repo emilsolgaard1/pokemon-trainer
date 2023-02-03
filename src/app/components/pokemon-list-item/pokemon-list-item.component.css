@@ -48,7 +48,7 @@
     left: 0;
     opacity: 10%;
 
-    position: absolute;
+    position: relative;
     width: 96px;
     height: 96px;
     background: #fff;
