@@ -30,8 +30,8 @@
   animation: none !important;
 }
 .pokeball-animating {
-  animation:  fall .25s ease-in-out,
-              shake 1.25s cubic-bezier(.36,.07,.19,.97) 3,
+  animation:  fall .25s ease-in-out,  
+              shake 1.25s cubic-bezier(.36,.07,.19,.97) 3,  
               transp 6.0s ease-in;
 }
 .fall-animating {
