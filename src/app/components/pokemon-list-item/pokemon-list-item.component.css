@@ -1,5 +1,5 @@
 /* Poké Styles */
-  /* Animation */
+/* Animation */
 @keyframes blink {
   from { background: #eee;}
   to { background: #e74c3c; }
@@ -30,7 +30,18 @@
   animation: none !important;
 }
 .pokeball-animating {
-  animation: fall .25s ease-in-out, shake 1.25s cubic-bezier(.36,.07,.19,.97) 3, transp 6.0s ease-in;
+  animation:  fall .25s ease-in-out,
+              shake 1.25s cubic-bezier(.36,.07,.19,.97) 3,
+              transp 6.0s ease-in;
+}
+.fall-animating {
+  animation: fall .25s ease-in-out;
+}
+.shake-animating {
+  animation: shake 1.25s cubic-bezier(.36,.07,.19,.97) 3;
+}
+.transp-animating {
+  animation: transp 6.0s ease-in;
 }
 .pokeball {
     top: 0;
