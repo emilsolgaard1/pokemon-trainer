@@ -29,6 +29,11 @@
   -ms-animation: none !important;
   animation: none !important;
 }
+.pokeball-animating {
+  animation:  fall .25s ease-in-out,
+              shake 1.25s cubic-bezier(.36,.07,.19,.97) 3,
+              transp 6.0s ease-in;
+}
 .pokeball {
     top: 0;
     left: 0;
@@ -43,38 +48,35 @@
     overflow: hidden;
     z-index: 5;
     box-shadow: inset -10px 10px 0 10px #ccc;
-    animation: fall .25s ease-in-out,
-               shake 1.25s cubic-bezier(.36,.07,.19,.97) 3,
-               transp 6.0s ease-in;
-  }
-  .pokeball::before,
-  .pokeball::after {
-    content:"";
-    position: absolute;
-  }
-  .pokeball::before {
-    background: red;
-    margin-left: -38px;
-    width: 100%;
-    height: 50%;
-  }
-  .pokeball::after {
-    top: calc(50% - 5px);
-    margin-left: -38px;
-    width: 100%;
-    height: 10px;
-    background: #000;
-  }
-  .pokeball__button {
-    position: absolute;
-    top: calc(50% - 10px);
-    left: calc(50% - 10px);
-    width: 20px;
-    height: 20px;
-    background: #7f8c8d;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    z-index: 10;
-    box-shadow: 0 0 0 5px black;
-    animation: blink .5s alternate 7;
-  }
+}
+.pokeball::before,
+.pokeball::after {
+  content:"";
+  position: absolute;
+}
+.pokeball::before {
+  background: red;
+  margin-left: -38px;
+  width: 100%;
+  height: 50%;
+}
+.pokeball::after {
+  top: calc(50% - 5px);
+  margin-left: -38px;
+  width: 100%;
+  height: 10px;
+  background: #000;
+}
+.pokeball__button {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 10px);
+  width: 20px;
+  height: 20px;
+  background: #7f8c8d;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 0 5px black;
+  animation: blink .5s alternate 7;
+}

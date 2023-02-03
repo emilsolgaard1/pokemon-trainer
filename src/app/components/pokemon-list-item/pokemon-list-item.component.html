@@ -1,6 +1,6 @@
 <li class="shadow border border-1 rounded" style="width:150px" *ngIf="pokemon">
     <section style="position:relative;width:96px;height:96px;margin:auto;">
-        <div class="pokeball" [ngClass]="{'no-animation' : !nowFavourite, 'd-none' : !isFavourite}">
+        <div class="pokeball" [ngClass]="{'d-none' : !isFavourite, 'pokeball-animating' : nowFavourite}">
             <div class="pokeball__button"></div>
         </div>
         <img [src]="pokemon.image" [alt]="pokemon.name"/>
