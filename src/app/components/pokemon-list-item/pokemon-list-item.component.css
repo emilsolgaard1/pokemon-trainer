@@ -1,4 +1,27 @@
 /* Poké Styles */
+  /* Animation */
+@keyframes blink {
+  from { background: #eee;}
+  to { background: #e74c3c; }
+}
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0); }
+  20% { transform: translate(-10px, 0) rotate(-20deg); }
+  30% { transform: translate(10px, 0) rotate(20deg); }
+  50% { transform: translate(-10px, 0) rotate(-10deg); }
+  60% { transform: translate(10px, 0) rotate(10deg); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
+@keyframes fall {
+  0% { top: -200px }
+  60% { top: 0 }
+  80% { top: -20px }
+  100% { top: 0 }
+}
+@keyframes transp {
+  from { opacity: 100%; }
+  to { opacity: 10%; }
+}
 .no-animation {
   -webkit-animation: none !important;
   -moz-animation: none !important;
@@ -54,27 +77,4 @@
     z-index: 10;
     box-shadow: 0 0 0 5px black;
     animation: blink .5s alternate 7;
-  }
-  /* Animation */
-  @keyframes blink {
-    from { background: #eee;}
-    to { background: #e74c3c; }
-  }
-  @keyframes shake {
-    0% { transform: translate(0, 0) rotate(0); }
-    20% { transform: translate(-10px, 0) rotate(-20deg); }
-    30% { transform: translate(10px, 0) rotate(20deg); }
-    50% { transform: translate(-10px, 0) rotate(-10deg); }
-    60% { transform: translate(10px, 0) rotate(10deg); }
-    100% { transform: translate(0, 0) rotate(0); }
-  }
-  @keyframes fall {
-    0% { top: -200px }
-    60% { top: 0 }
-    80% { top: -20px }
-    100% { top: 0 }
-  }
-  @keyframes transp {
-    from { opacity: 100%; }
-    to { opacity: 10%; }
   }
